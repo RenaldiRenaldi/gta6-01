@@ -33,7 +33,7 @@ function fail(title,message){document.getElementById('end-tag').textContent='MAR
 function retry(){location.href=location.pathname;}
 function restartStory(){profile.completed=0;profile.cash=2450;profile.bonus=0;saveProfile(profile);retry();}
 for(const [id,action] of [['start',begin],['resume',()=>setScreen('play')],['restart',restartStory],['again',retry]])document.getElementById(id).addEventListener('click',action);
-if(shot){setScreen('play');hud.show();yaw=stageShot(shot,world,player,mission,police);}
+ if(shot){setScreen('play');hud.show();yaw=stageShot(shot,world,player,mission,police);}
 function moveOnFoot(dt){
  const f=(input.down('KeyW')||input.down('ArrowUp')?1:0)-(input.down('KeyS')||input.down('ArrowDown')?1:0),s=(input.down('KeyD')||input.down('ArrowRight')?1:0)-(input.down('KeyA')||input.down('ArrowLeft')?1:0);
  player.heading=yaw+Math.PI;player.model.rotation.y=player.heading;
