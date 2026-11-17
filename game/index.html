@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0b2024">
+<title>SOLMARA | City of Open Roads</title>
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<canvas id="world" aria-label="SOLMARA open-world city"></canvas>
+<div id="hud" class="hidden">
+  <header class="topline"><div class="brand"><b>SOLMARA</b><span>COASTAL DISTRICT</span></div><div class="clock"><span id="district">MARINA / 04</span><strong id="time">16:42</strong></div></header>
+  <section class="mission"><span class="eyebrow">CURRENT JOB <i id="mission-index">01 / 04</i></span><strong id="mission-title">THE PACKAGE</strong><span id="objective">Get in the car and reach the marina.</span><small id="distance">294 M TO OBJECTIVE</small></section>
+  <aside class="status"><div class="wanted"><span id="heat-label">HEAT</span><b id="stars">☆☆☆☆☆</b></div><div class="health"><span>VITALS</span><div><i id="health-fill"></i></div></div><div class="ammo"><span>9MM</span><b id="ammo">12 / 48</b></div></aside>
+  <canvas id="map" width="204" height="204" aria-label="Live city minimap"></canvas>
+  <footer class="bottomline"><div><span>WALLET</span><b id="cash">$2,450</b></div><div class="car-readout"><span id="vehicle-name">ON FOOT</span><b id="speed">0 <small>KM/H</small></b></div><div class="hint" id="hint">WASD MOVE <em>·</em> E ENTER <em>·</em> CLICK FIRE</div></footer>
+  <div id="toast" class="toast"></div><div id="radio" class="radio hidden"><span>REYES / PRIVATE CHANNEL</span><p id="radio-copy"></p></div><div id="crosshair" class="crosshair hidden"></div>
+</div>
+<div id="screen" class="screen"><div class="screen-card"><div class="sun-mark"></div><span class="eyebrow">A CITY THAT NEVER FORGETS</span><h1>SOLMARA</h1><p class="subtitle">CITY OF OPEN ROADS</p><p class="story">Marco Reyes came home to drive. Solmara had other plans.</p><button id="start">PRESS ENTER TO BEGIN</button><div class="controls"><span>WASD <b>MOVE / DRIVE</b></span><span>MOUSE <b>LOOK</b></span><span>E <b>ENTER / EXIT</b></span><span>CLICK <b>FIRE</b></span><span>R / F <b>RELOAD / MELEE</b></span><span>ESC <b>PAUSE</b></span></div></div></div>
+<div id="pause" class="screen hidden"><div class="screen-card compact"><span class="eyebrow">SOLMARA / FIELD NOTES</span><h2>PAUSED</h2><p>Take a breath. The city is still moving.</p><button id="resume">RETURN TO THE STREET</button><button id="restart" class="secondary">RESTART STORY</button></div></div>
+<div id="end" class="screen hidden"><div class="screen-card compact"><span class="eyebrow" id="end-tag">RUN ENDED</span><h2 id="end-title">BUSTED</h2><p id="end-copy">The city caught up with Marco.</p><button id="again">TRY AGAIN</button></div></div>
+<div id="status" role="status" aria-live="polite"></div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

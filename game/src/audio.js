@@ -1,0 +1,5 @@
+// All sound comes from local oscillators: no music or sample requests.
+export function createAudio(){let ctx,engineClock=0,sirenClock=0;
+ function tone(freq,duration,type='sine',gain=.035){try{ctx??=new AudioContext();if(ctx.state==='suspended')ctx.resume();const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.value=freq;g.gain.value=gain;g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+duration);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+duration);}catch{}}
+ return {engine(speed,dt){engineClock+=dt;if(engineClock>.09){engineClock=0;if(speed>2)tone(45+speed*2,.11,'sawtooth',.012);}},siren(on,dt){sirenClock+=dt;if(on&&sirenClock>.26){sirenClock=0;tone(Math.sin(performance.now()*.006)>0?660:880,.23,'triangle',.03);}},shot(){tone(115,.09,'sawtooth',.055);tone(48,.12,'triangle',.035);},impact(){tone(80,.16,'triangle',.045);},step(){tone(190,.035,'sine',.01);},reward(){for(let i=0;i<3;i++)setTimeout(()=>tone([330,440,660][i],.22,'sine',.04),i*100);}};
+}
